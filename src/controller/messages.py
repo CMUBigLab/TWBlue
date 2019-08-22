@@ -16,7 +16,7 @@ import url_shortener
 import sound
 import config
 from pubsub import pub
-from .. import twitter_a11y_client
+from . import twitter_a11y_client
 if system == "Windows":
  from wxUI.dialogs import message, urlList
  from wxUI import commonMessageDialogs
@@ -232,7 +232,7 @@ class viewTweet(basicTweet):
      for z in tweetList[i]["retweeted_status"]["extended_entities"]["media"]:
       if "ext_alt_text" in z and z["ext_alt_text"] != None:
        image_description.append(z["ext_alt_text"])
-   image_description = twitter_a11y_client.request_alt_for_tweet(tweetList[i])
+   image_description = twitter_a11y_client.request_alt_for_tweet(tweet)
    # set rt and likes counters.
    rt_count = str(tweet["retweet_count"])
    favs_count = str(tweet["favorite_count"])
